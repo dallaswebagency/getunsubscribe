@@ -338,6 +338,25 @@ footer ul a:hover{color:var(--cyan)}
   .f-top{grid-template-columns:1fr}
   .ribbon .wrap{font-size:.82rem;gap:.5rem}
 }
+
+/* Review popup */
+.rpop{position:fixed;left:24px;bottom:24px;z-index:60;width:340px;background:#fff;border-radius:18px;padding:1.2rem 1.3rem 1.1rem;box-shadow:0 24px 50px -18px rgba(11,30,52,.45),0 0 0 1px var(--line);border-left:4px solid var(--cyan);opacity:0;transform:translateY(24px) scale(.97);pointer-events:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.rpop.show{opacity:1;transform:none;pointer-events:auto}
+.rpop .x{position:absolute;top:.7rem;right:.7rem;width:30px;height:30px;border:0;background:none;border-radius:50%;cursor:pointer;color:var(--muted);font-size:1.2rem;line-height:1}
+.rpop .x:hover{background:var(--bg);color:var(--navy)}
+.rpop .stars{font-size:1.05rem}
+.rpop q{display:block;margin:.5rem 0 .8rem;font-size:.98rem;color:var(--ink-2);line-height:1.5;padding-right:1rem}
+.rpop .rp-who{display:flex;align-items:center;gap:.6rem}
+.rpop .rp-who i{width:34px;height:34px;border-radius:50%;overflow:hidden;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.75rem;background:var(--cyan-soft);color:var(--cyan-2);flex:none}
+.rpop .rp-who i img{width:100%;height:100%;object-fit:cover}
+.rpop .rp-who b{color:var(--navy);font-size:.92rem;display:block;line-height:1.2}
+.rpop .rp-who span{font-size:.75rem;color:var(--muted)}
+.rpop a.more{display:inline-block;margin-top:.8rem;font-size:.88rem;font-weight:600;color:var(--cyan-2);border-bottom:1.5px solid rgba(22,136,154,.35)}
+.rpop a.more:hover{border-color:var(--cyan-2)}
+.rpop .bar{position:absolute;left:0;bottom:0;height:3px;background:var(--cyan);border-radius:0 0 0 14px;width:0}
+.rpop.show .bar{animation:rpbar 7s linear forwards}
+@keyframes rpbar{to{width:100%}}
+@media (max-width:760px){.rpop{left:12px;right:12px;bottom:12px;width:auto}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.row{opacity:1;transform:none}}
 </style>
 </head>
@@ -608,7 +627,7 @@ footer ul a:hover{color:var(--cyan)}
   </div>
 </section>
 
-<section class="wall">
+<section class="wall" id="reviews">
   <div class="wall-head reveal">
     <p class="eyebrow">Trusted by GetUnsubscribe members</p>
     <h2 style="margin-top:.8rem">See what people are saying</h2>
@@ -652,6 +671,16 @@ footer ul a:hover{color:var(--cyan)}
   </div>
 </footer>
 
+
+<div class="rpop" id="rpop" role="status" aria-live="polite">
+  <button class="x" aria-label="Close review" id="rpClose">×</button>
+  <div class="stars">★★★★★</div>
+  <q id="rpQuote"></q>
+  <div class="rp-who"><i id="rpAv"></i><div><b id="rpName"></b><span>GetUnsubscribe Member</span></div></div>
+  <a class="more" href="#reviews">Read more member reviews</a>
+  <div class="bar"></div>
+</div>
+
 <script>
 // Testimonials (from the live site)
 const T=[
@@ -686,6 +715,19 @@ document.querySelectorAll('.vcard').forEach(card=>{
   });
   vid.addEventListener('ended',()=>card.classList.remove('playing'));
 });
+
+// Review popup: rotates real member reviews, stays closed once dismissed
+(function(){
+  const pop=document.getElementById('rpop');let i=0,timer;
+  try{if(sessionStorage.getItem('rpClosed'))return}catch(e){}
+  const fill=([q,n,a])=>{document.getElementById('rpQuote').textContent=q;document.getElementById('rpName').textContent=n;document.getElementById('rpAv').innerHTML=a.startsWith('http')?`<img src="${a}" alt="${n}">`:a};
+  const next=()=>{pop.classList.remove('show');setTimeout(()=>{fill(T[i++%T.length]);void pop.offsetWidth;pop.classList.add('show');timer=setTimeout(next,7000)},500)};
+  setTimeout(next,3500);
+  pop.addEventListener('mouseenter',()=>{clearTimeout(timer);pop.querySelector('.bar').style.animationPlayState='paused'});
+  pop.addEventListener('mouseleave',()=>{pop.querySelector('.bar').style.animationPlayState='running';timer=setTimeout(next,3000)});
+  document.getElementById('rpClose').addEventListener('click',()=>{clearTimeout(timer);pop.classList.remove('show');try{sessionStorage.setItem('rpClosed','1')}catch(e){}});
+  pop.querySelector('.more').addEventListener('click',()=>{clearTimeout(timer);pop.classList.remove('show')});
+})();
 </script>
 </body>
 </html>
