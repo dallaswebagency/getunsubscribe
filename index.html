@@ -130,7 +130,10 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 .track::before{content:"";position:absolute;top:44px;left:8%;right:8%;height:2px;background:repeating-linear-gradient(90deg,var(--cyan) 0 10px,transparent 10px 18px);z-index:0}
 .step{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem;transition:transform .3s,box-shadow .3s}
 .step:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.step .num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--navy);color:#fff;font-family:var(--mono);font-weight:600;margin-bottom:1.4rem;box-shadow:0 0 0 8px var(--bg)}
+.step .num{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:var(--navy);color:#fff;margin-bottom:1.4rem;box-shadow:0 0 0 8px var(--bg);position:relative}
+.step .num svg{width:28px;height:28px}
+.step .num em{position:absolute;top:-8px;right:-8px;width:24px;height:24px;border-radius:50%;background:var(--yellow);color:var(--ink);font-style:normal;font-family:var(--mono);font-size:.72rem;font-weight:600;display:grid;place-items:center;border:2px solid #fff}
+.track::before{top:52px}
 .step:nth-child(2) .num{background:var(--cyan-2)}
 .step:nth-child(3) .num{background:var(--mint-2)}
 .step small{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.12em}
@@ -170,8 +173,8 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 .fstep em.ok{background:rgba(115,214,161,.18);color:var(--mint)}
 .flow-note{margin-top:1.4rem;font-size:.9rem;color:#9db3c4}
 .secgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
-.secgrid div{background:rgba(255,255,255,.04);border-radius:var(--r-md);padding:1rem;font-size:.86rem;color:#dbe7ef;font-weight:500}
-.secgrid svg{width:24px;height:24px;color:var(--mint);margin-bottom:.5rem}
+.secgrid div{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-md);padding:1.2rem;font-size:.9rem;line-height:1.35;color:#dbe7ef;font-weight:500;display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;min-height:120px}
+.secgrid svg{display:block;width:40px;height:40px;padding:9px;border-radius:11px;background:rgba(115,214,161,.14);color:var(--mint);flex:none}
 .feat-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(84,197,216,.14);color:var(--cyan);margin-bottom:1rem}
 .feat-ic svg{width:22px;height:22px}
 
@@ -452,9 +455,9 @@ footer ul a:hover{color:var(--cyan)}
       <p class="lead">We automate subscription management, so you stay in control.</p>
     </div>
     <div class="track">
-      <div class="step reveal"><div class="num">01</div><small>STEP 1</small><h3>Connect</h3><p>Secure, read-only account linking.</p></div>
-      <div class="step reveal" style="transition-delay:.12s"><div class="num">02</div><small>STEP 2</small><h3>Review</h3><p>All subscriptions in one clear dashboard.</p></div>
-      <div class="step reveal" style="transition-delay:.24s"><div class="num">03</div><small>STEP 3</small><h3>Cancel</h3><p>We handle it, and confirm when it's done.</p></div>
+      <div class="step reveal"><div class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.5.5l3-3a5 5 0 00-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 00-7.5-.5l-3 3a5 5 0 007 7l1.7-1.7"/></svg><em>1</em></div><small>STEP 1</small><h3>Connect</h3><p>Secure, read-only account linking.</p></div>
+      <div class="step reveal" style="transition-delay:.12s"><div class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><em>2</em></div><small>STEP 2</small><h3>Review</h3><p>All subscriptions in one clear dashboard.</p></div>
+      <div class="step reveal" style="transition-delay:.24s"><div class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><em>3</em></div><small>STEP 3</small><h3>Cancel</h3><p>We handle it, and confirm when it's done.</p></div>
     </div>
   </div>
 </section>
