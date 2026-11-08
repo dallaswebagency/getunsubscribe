@@ -183,12 +183,19 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 .vhead{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.4rem}
 .rating{display:flex;align-items:center;gap:.8rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.6rem 1.1rem;font-size:.9rem}
 .rating b{color:var(--navy)}
-.reel{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;scrollbar-width:thin}
-.reel::-webkit-scrollbar{height:6px}.reel::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
-.vcard{flex:0 0 clamp(220px,22vw,260px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;position:relative;scroll-snap-align:start;background:var(--navy);cursor:pointer;box-shadow:0 20px 40px -24px rgba(22,44,70,.6)}
+.reel{overflow:hidden;padding:.5rem 0 1rem;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.reel-track{display:flex;gap:1.1rem;width:max-content;animation:reelmove 45s linear infinite}
+.reel:hover .reel-track,.reel-track.hold{animation-play-state:paused}
+@keyframes reelmove{to{transform:translateX(calc(-50% - .55rem))}}
+.reel-ctrl{display:flex;justify-content:center;gap:.6rem;margin-top:1rem}
+.reel-ctrl button{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:.5rem 1rem;font:600 .85rem 'Poppins',sans-serif;cursor:pointer}
+.reel-ctrl button:hover{border-color:var(--navy)}
+.vcard{flex:0 0 clamp(210px,20vw,250px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s;background:var(--navy);cursor:pointer;box-shadow:0 20px 40px -24px rgba(22,44,70,.6)}
 .vcard video{width:100%;height:100%;object-fit:cover}
 .vcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,30,52,.75));pointer-events:none;transition:opacity .3s}
 .vcard.playing::after{opacity:0}
+.vcard:hover{transform:translateY(-6px)}
+.vcard.playing{box-shadow:0 0 0 3px var(--cyan),0 30px 50px -24px rgba(22,44,70,.7)}
 .vcard .play{position:absolute;left:1rem;bottom:1rem;z-index:2;display:flex;align-items:center;gap:.6rem;color:#fff;font-size:.85rem;font-weight:600}
 .vcard .play i{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);display:grid;place-items:center}
 .vcard .play svg{width:16px;height:16px;fill:#fff;margin-left:2px}
@@ -373,6 +380,69 @@ footer ul a:hover{color:var(--cyan)}
 @media (max-width:1024px){.pv{grid-template-columns:1fr;gap:2.5rem}.pv-left{position:static}}
 @media (max-width:600px){.pv-feat{grid-template-columns:auto 1fr}.pv-feat .chip{grid-column:2;justify-self:start}.tl li{grid-template-columns:auto 1fr}.tl em{grid-column:2;justify-self:start}}
 
+/* Value v2 */
+.vx-head{text-align:center;max-width:820px;margin:0 auto 3rem}
+.vx-head .lead{margin:1.2rem auto 0}
+.kicker{font-weight:700;color:var(--cyan-2);font-size:1rem;margin-bottom:.9rem}
+.kicker em{font-style:normal;background:var(--yellow);color:var(--ink);padding:0 .35rem;border-radius:4px}
+.vx{display:grid;grid-template-columns:1fr auto 1fr;gap:1.4rem;align-items:stretch}
+.vx-card{border-radius:var(--r-lg);padding:2.2rem;position:relative;overflow:hidden}
+.vx-card h3{font-size:1.25rem;margin:.6rem 0 1rem}
+.vx-amt{font-size:clamp(3rem,6vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--navy)}
+.vx-amt s{font-size:.4em;color:#9aa8b6;font-weight:600;margin-right:.4rem;vertical-align:middle}
+.vx-amt>span:last-child{font-size:.3em;font-weight:500;color:var(--muted);letter-spacing:0}
+.vx-card.cost{background:#fff;border:1px solid var(--line)}
+.receipt{list-style:none;margin:1.6rem 0 1rem;border-top:2px dashed var(--line)}
+.receipt li{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px dashed var(--line);font-size:.92rem;color:var(--muted)}
+.receipt b{color:var(--navy);font-family:var(--mono)}
+.vx-card.save{background:linear-gradient(155deg,var(--navy),var(--ink));color:#c9d8e4}
+.vx-card.save::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(115,214,161,.4),transparent 70%)}
+.vx-card.save .eyebrow{color:var(--mint)}
+.vx-card.save h3{color:#fff}
+.vx-card.save .vx-amt{color:#fff}
+.vx-card.save .vx-amt>span:last-child{color:#9db3c4}
+.vx-sub{margin-top:1.2rem;color:#9db3c4}
+.vx-built{margin-top:1.4rem;font-weight:600;color:var(--mint);font-size:1.05rem}
+.vx-card.save .fine{color:#7f97ab}
+.vx-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;padding:0 .4rem;width:210px}
+.vx-badge{width:170px;height:170px;border-radius:50%;background:var(--yellow);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.2rem;box-shadow:0 0 0 10px rgba(250,204,21,.18),0 20px 40px -18px rgba(180,130,0,.6)}
+.vx-badge strong{font-size:3.2rem;font-weight:800;line-height:1;letter-spacing:-.04em}
+.vx-badge span{font-size:.72rem;font-weight:600;line-height:1.3;margin-top:.3rem}
+.vx-blocks{display:grid;grid-template-columns:repeat(4,22px);gap:6px}
+.vx-blocks i{width:22px;height:22px;border-radius:6px;background:var(--cyan);opacity:0;transform:scale(.4);transition:opacity .4s,transform .4s}
+.vx-blocks i.c{background:var(--amber)}
+.in .vx-blocks i{opacity:1;transform:none}
+.vx-legend{display:flex;flex-direction:column;gap:.3rem;font-size:.78rem;color:var(--muted)}
+.vx-legend span{display:flex;align-items:center;gap:.45rem}
+.vx-legend i{width:12px;height:12px;border-radius:3px;background:var(--cyan)}
+.vx-legend i.c{background:var(--amber)}
+/* Story v2 */
+.st{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:36px;padding:clamp(2rem,4.5vw,3.6rem);box-shadow:var(--shadow)}
+.st-left h2{margin:.9rem 0 1rem}
+.st-quote{position:relative;margin:2rem 0 1.6rem;padding:1.6rem 1.6rem 1.4rem 1.8rem;background:var(--cyan-soft);border-radius:var(--r-md)}
+.st-quote .qm{position:absolute;top:-28px;left:18px;font-size:5rem;line-height:1;color:var(--cyan);font-weight:800}
+.st-quote blockquote{font-size:1.15rem;font-weight:600;color:var(--navy);line-height:1.45}
+.st-quote figcaption{margin-top:.8rem;font-size:.88rem;color:var(--muted)}
+.st-app{background:var(--ink);border-radius:30px;padding:1.6rem;color:#fff;box-shadow:0 40px 70px -35px rgba(11,30,52,.8)}
+.app-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem}
+.app-top small{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--cyan)}
+.app-top .live{font-size:.78rem;color:#9db3c4;display:flex;align-items:center;gap:.4rem}
+.app-top .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint)}
+.donut-wrap{display:flex;flex-direction:column;align-items:center;gap:.6rem;margin-bottom:1.4rem}
+.donut-wrap p{font-size:.85rem;color:#9db3c4}
+.donut{width:190px;height:190px;border-radius:50%;background:conic-gradient(#E5484D 0 7%,var(--cyan) 7% 77.6%,var(--amber) 77.6% 100%);display:grid;place-items:center;position:relative}
+.donut>div{width:136px;height:136px;border-radius:50%;background:var(--ink);display:flex;align-items:baseline;justify-content:center;padding-top:48px}
+.donut strong{font-size:2.3rem;font-weight:800;letter-spacing:-.03em}
+.donut span{color:#9db3c4;font-size:.9rem}
+.app-list{display:grid;gap:.6rem}
+.al{display:grid;grid-template-columns:auto 1fr auto;gap:.9rem;align-items:center;padding:.85rem 1rem;background:rgba(255,255,255,.05);border-radius:14px}
+.al i{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.85rem;color:#fff}
+.al b{font-weight:500;font-size:.92rem;display:block;margin-bottom:.35rem}
+.al em{font-style:normal;font-family:var(--mono);font-weight:600}
+.mini{height:5px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden}
+.mini span{display:block;height:100%;border-radius:5px}
+@media (max-width:1024px){.vx{grid-template-columns:1fr}.vx-mid{width:auto;flex-direction:row;flex-wrap:wrap}.st{grid-template-columns:1fr}}
+
 /* Review popup */
 .rpop{position:fixed;left:24px;bottom:24px;z-index:60;width:340px;background:#fff;border-radius:18px;padding:1.2rem 1.3rem 1.1rem;box-shadow:0 24px 50px -18px rgba(11,30,52,.45),0 0 0 1px var(--line);border-left:4px solid var(--cyan);opacity:0;transform:translateY(24px) scale(.97);pointer-events:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
 .rpop.show{opacity:1;transform:none;pointer-events:auto}
@@ -550,30 +620,48 @@ footer ul a:hover{color:var(--cyan)}
       <div class="rating"><span class="stars">★★★★★</span><b>4.8 / 5</b><span style="color:var(--muted)">· 12,000+ members</span></div>
     </div>
     <p class="lead reveal" style="margin:-1rem 0 2rem">Hear directly from GetUnsubscribe users about what they discovered, what they were paying for, and how GetUnsubscribe helped them take control of their subscriptions.</p>
-    <div class="reel">
+    <div class="reel" id="reel"><div class="reel-track" id="reelTrack">
       <div class="vcard"><span class="feat">FEATURED</span><video src="https://media.getunsubscribe.com/landing/reviews/review-3.mp4#t=0.5" preload="metadata" playsinline></video><div class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></i>Watch with sound</div></div>
       <div class="vcard"><video src="https://media.getunsubscribe.com/landing/reviews/review-1.mp4#t=0.5" preload="metadata" playsinline></video><div class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></i>Watch with sound</div></div>
       <div class="vcard"><video src="https://media.getunsubscribe.com/landing/reviews/review-2.mp4#t=0.5" preload="metadata" playsinline></video><div class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></i>Watch with sound</div></div>
       <div class="vcard"><video src="https://media.getunsubscribe.com/landing/reviews/review-4.mp4#t=0.5" preload="metadata" playsinline></video><div class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></i>Watch with sound</div></div>
-      <div class="vcard"><video src="https://media.getunsubscribe.com/landing/reviews/review-5.mp4#t=0.5" preload="metadata" playsinline></video><div class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></i>Watch with sound</div></div>
+      <div class="vcard"><video src="https://media.getunsubscribe.com/landing/reviews/review-5.mp4#t=0.5" preload="metadata" playsinline></video><div class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></i>Watch with sound</div></div></div>
     </div>
+    <div class="reel-ctrl"><button id="reelToggle" type="button">Pause slider</button></div>
   </div>
 </section>
 
 <section class="value">
   <div class="wrap">
-    <div class="value-card reveal" id="valueCard">
-      <div>
-        <p class="kicker">Make GetUnsubscribe the <em>ONLY</em> subscription that <em>PAYS YOU BACK!</em></p>
-        <h2>The first subscription you'll actually be glad you kept.</h2>
-        <p class="lead" style="margin-top:1.2rem">GetUnsubscribe is the subscription that uncovers hidden charges, cancels what you don't need, and helps you stay in control of the ones worth keeping.</p>
+    <div class="vx-head reveal">
+      <p class="kicker">Make GetUnsubscribe the <em>ONLY</em> subscription that <em>PAYS YOU BACK!</em></p>
+      <h2>The first subscription you'll actually be glad you kept.</h2>
+      <p class="lead">GetUnsubscribe is the subscription that uncovers hidden charges, cancels what you don't need, and helps you stay in control of the ones worth keeping.</p>
+    </div>
+    <div class="vx reveal" id="valueCard">
+      <div class="vx-card cost">
+        <p class="eyebrow">What it costs</p>
+        <h3>Annual Pass, first year</h3>
+        <div class="vx-amt"><s>$99</s>$79<span>/yr</span></div>
+        <ul class="receipt">
+          <li><span>First year</span><b>$79</b></li>
+          <li><span>From your second year</span><b>$99/yr</b></li>
+          <li><span>Or monthly</span><b>$12.99/mo</b></li>
+        </ul>
+        <p class="fine">Full access on either plan.</p>
       </div>
-      <div class="bars">
-        <p class="eyebrow">What it costs vs. what it can save</p>
-        <div class="bar cost"><label>Annual Pass, first year <span><s style="color:#9aa8b6;font-weight:500">$99</s> $79/yr</span></label><div class="t"><div class="f"></div></div></div>
-        <div class="bar save"><label>Average annual savings <span>$1,220/yr</span></label><div class="t"><div class="f"></div></div></div>
-        <div class="mult"><strong>15×</strong><span>Over 15× the cost of an Annual Pass. Built to help save more than it costs.</span></div>
-        <p class="fine">Individual savings vary. Annual Pass: $79 for your first year, then $99/year. Or $12.99/month. Full access on either plan.</p>
+      <div class="vx-mid">
+        <div class="vx-badge"><strong>15×</strong><span>Over 15× the cost of an Annual Pass</span></div>
+        <div class="vx-blocks" aria-hidden="true"><i class="c"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="vx-legend"><span><i class="c"></i>Annual Pass</span><span><i></i>Average savings</span></p>
+      </div>
+      <div class="vx-card save">
+        <p class="eyebrow">What it can save</p>
+        <h3>Average annual savings</h3>
+        <div class="vx-amt">$<span class="cnt" data-to="1220">0</span><span>/yr</span></div>
+        <p class="vx-sub">Average annual savings by canceling unwanted subscriptions</p>
+        <p class="vx-built">Built to help save more than it costs.</p>
+        <p class="fine">Individual savings vary.</p>
       </div>
     </div>
   </div>
@@ -581,26 +669,34 @@ footer ul a:hover{color:var(--cyan)}
 
 <section class="story">
   <div class="wrap">
-    <div class="quote-card reveal">
-      <div>
-        <p class="eyebrow" style="margin-bottom:1rem">One small check. Real money back.</p>
-        <h3 style="font-size:1.5rem;margin-bottom:1.4rem">What could be hiding in your monthly spend?</h3>
-        <blockquote>“I found out I was spending close to $700 on subscriptions I had no idea about. I'm glad I was able to see that and get everything back on track.”</blockquote>
-        <cite style="display:block;margin-top:1rem">Kiyah M · GetUnsubscribe Member</cite>
+    <div class="st reveal">
+      <div class="st-left">
+        <p class="eyebrow">One small check. Real money back.</p>
+        <h2>What could be hiding in your monthly spend?</h2>
+        <p class="lead">Members save an average of $1,220 per year after taking control of unwanted subscriptions.</p>
+        <figure class="st-quote">
+          <span class="qm">“</span>
+          <blockquote>I found out I was spending close to $700 on subscriptions I had no idea about. I'm glad I was able to see that and get everything back on track.</blockquote>
+          <figcaption><span class="stars">★★★★★</span> Kiyah M · GetUnsubscribe Member</figcaption>
+        </figure>
+        <div class="kstats">
+          <div><b>~$700</b><span>in hidden spend found</span></div>
+          <div><b>Back</b><span>on track financially</span></div>
+          <div><b>Shared</b><span>with family &amp; friends</span></div>
+        </div>
       </div>
-      <div class="kstats">
-        <div><b>~$700</b><span>in hidden spend found</span></div>
-        <div><b>Back</b><span>on track financially</span></div>
-        <div><b>Shared</b><span>with family &amp; friends</span></div>
+      <div class="st-app">
+        <div class="app-top"><small>EXAMPLE DASHBOARD</small><span class="live">Recurring spend uncovered</span></div>
+        <div class="donut-wrap">
+          <div class="donut"><div><strong>$221</strong><span>/mo</span></div></div>
+          <p>from charges like these</p>
+        </div>
+        <div class="app-list">
+          <div class="al"><i style="background:#E5484D">S</i><div><b>Streaming Service</b><div class="mini"><span style="width:7%;background:#E5484D"></span></div></div><em>$15.49</em></div>
+          <div class="al"><i style="background:var(--cyan-2)">C</i><div><b>Cloud Storage</b><div class="mini"><span style="width:70.6%;background:var(--cyan)"></span></div></div><em>$156.00</em></div>
+          <div class="al"><i style="background:var(--amber)">F</i><div><b>Fitness Membership</b><div class="mini"><span style="width:22.6%;background:var(--amber)"></span></div></div><em>$50.00</em></div>
+        </div>
       </div>
-    </div>
-    <div class="exdash reveal" style="transition-delay:.12s">
-      <small>EXAMPLE DASHBOARD</small>
-      <div><div style="font-size:.9rem;color:#9db3c4;margin-bottom:.4rem">Recurring spend uncovered</div><div class="amt">$221<span>/mo</span></div></div>
-      <div class="ln"><b><i>S</i>Streaming Service</b><em>$15.49</em></div>
-      <div class="ln"><b><i>C</i>Cloud Storage</b><em>$156.00</em></div>
-      <div class="ln"><b><i>F</i>Fitness Membership</b><em>$50.00</em></div>
-      <p style="font-size:.88rem;color:#9db3c4;margin-top:.4rem">Members save an average of $1,220 per year after taking control of unwanted subscriptions.</p>
     </div>
   </div>
 </section>
@@ -720,19 +816,34 @@ document.getElementById('mq2').innerHTML=(a2.map(card).join('')).repeat(2);
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+// Savings count-up
+const sv=document.querySelector('.cnt');new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();let n=0;const to=+sv.dataset.to;const st=()=>{n+=Math.ceil((to-n)/14);sv.textContent=n.toLocaleString();if(n<to)requestAnimationFrame(st)};st()})},{threshold:.4}).observe(sv);
+// stagger the 1 vs 15 blocks
+document.querySelectorAll('.vx-blocks i').forEach((b,k)=>b.style.transitionDelay=(k*60)+'ms');
+
 // Hero counter
 const c=document.getElementById('count');let v=0;const end=221;
 const tick=()=>{v+=Math.ceil((end-v)/12);c.textContent='$'+v;if(v<end)requestAnimationFrame(tick)};setTimeout(tick,400);
 
-// Video reel: tap to play with sound, one at a time
-document.querySelectorAll('.vcard').forEach(card=>{
-  const vid=card.querySelector('video');
-  card.addEventListener('click',()=>{
-    document.querySelectorAll('.vcard video').forEach(o=>{if(o!==vid){o.pause();o.closest('.vcard').classList.remove('playing')}});
-    if(vid.paused){vid.muted=false;vid.play();card.classList.add('playing')}else{vid.pause();card.classList.remove('playing')}
+// Video slider: auto-moves, stops on hover and while a video plays
+(function(){
+  const track=document.getElementById('reelTrack'),btn=document.getElementById('reelToggle');let manual=false;
+  [...track.children].forEach(c=>{const k=c.cloneNode(true);k.setAttribute('aria-hidden','true');track.appendChild(k)});
+  const vids=[...track.querySelectorAll('video')];
+  const anyPlaying=()=>vids.some(v=>!v.paused&&!v.ended);
+  const sync=()=>{const h=manual||anyPlaying();track.classList.toggle('hold',h);btn.textContent=h?'Play slider':'Pause slider'};
+  track.querySelectorAll('.vcard').forEach(card=>{
+    const vid=card.querySelector('video');
+    card.addEventListener('click',()=>{
+      vids.forEach(o=>{if(o!==vid&&!o.paused){o.pause();o.closest('.vcard').classList.remove('playing')}});
+      if(vid.paused){vid.muted=false;vid.play();card.classList.add('playing')}else{vid.pause();card.classList.remove('playing')}
+      sync();
+    });
+    vid.addEventListener('ended',()=>{card.classList.remove('playing');sync()});
+    vid.addEventListener('pause',sync);
   });
-  vid.addEventListener('ended',()=>card.classList.remove('playing'));
-});
+  btn.addEventListener('click',()=>{if(anyPlaying()){vids.forEach(v=>{v.pause();v.closest('.vcard').classList.remove('playing')});manual=false}else{manual=!manual}sync()});
+})();
 
 // Review popup: rotates real member reviews, stays closed once dismissed
 (function(){
