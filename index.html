@@ -52,7 +52,7 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 /* Nav */
 .nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.6) blur(16px);background:rgba(245,250,252,.75);border-bottom:1px solid rgba(226,232,240,.7)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
-.nav img{height:34px;width:auto}
+.nav .logo{flex:none;display:block}.nav img{height:34px;width:auto;max-width:none}
 .nav ul{display:flex;gap:2rem;list-style:none;font-weight:500;font-size:.95rem}
 .nav ul a:hover{color:var(--cyan-2)}
 .nav-cta{display:flex;gap:.7rem;align-items:center}
@@ -89,7 +89,7 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 .total::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(84,197,216,.5),transparent 70%)}
 .total small{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#9fd9e5}
 .total strong{display:block;font-size:2.6rem;font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-top:.3rem}
-.total span{font-size:.85rem;color:#b8cbd9}
+.total>span{font-size:.85rem;color:#b8cbd9}
 .rows{margin-top:1rem;display:grid;gap:.6rem}
 .row{display:flex;align-items:center;gap:.9rem;padding:.85rem 1rem;border:1px solid var(--line);border-radius:var(--r-sm);background:#fff;opacity:0;transform:translateX(18px);animation:slide .6s forwards}
 .row:nth-child(1){animation-delay:.5s}.row:nth-child(2){animation-delay:.9s}.row:nth-child(3){animation-delay:1.3s}
@@ -103,7 +103,7 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 .float b{display:block;color:var(--navy);font-size:.88rem}
 .float small{color:var(--muted);font-size:.75rem}
 .float .ico{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:none}
-.f1{left:-46px;top:38%;animation-delay:-1s}
+.f1{left:-56px;top:auto;bottom:22%;animation-delay:-1s}
 .f2{right:-30px;bottom:-26px}
 @keyframes bob{50%{transform:translateY(-10px)}}
 
@@ -293,7 +293,7 @@ h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700}
 /* Footer */
 footer{background:var(--ink);color:#9db3c4;padding:4.5rem 0 2rem;font-size:.92rem}
 .f-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.f-brand img{height:34px;width:auto;background:#fff;padding:8px 12px;border-radius:12px;margin-bottom:1.2rem}
+.f-brand img{height:50px;width:auto;max-width:none;background:#fff;padding:8px 12px;border-radius:12px;margin-bottom:1.2rem}
 .f-brand p{max-width:32ch}
 .social{display:flex;gap:.6rem;margin-top:1.4rem}
 .social a{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.06);transition:background .2s}
@@ -353,7 +353,7 @@ footer ul a:hover{color:var(--cyan)}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#"><img src="https://getunsubscribe.com/brand-logo.png" alt="GetUnsubscribe"></a>
+    <a class="logo" href="#"><img src="https://getunsubscribe.com/brand-logo.png" alt="GetUnsubscribe"></a>
     <ul>
       <li><a href="#how">How it Works</a></li>
       <li><a href="#pricing">Pricing</a></li>
