@@ -665,7 +665,7 @@ const T=[
  ["A fantastic app for managing subscriptions. Reliable, easy to use, and constantly improving.","Brian Walker","BW"]
 ];
 const card=([q,n,a])=>`<div class="tcard"><p><span class="stars" style="display:block;font-size:.8rem;margin-bottom:.5rem">★★★★★</span>“${q}”</p><div class="who"><i>${a.startsWith('http')?`<img src="${a}" alt="${n}" loading="lazy">`:a}</i><div><b>${n}</b><span>GetUnsubscribe Member</span></div></div></div>`;
-const a1=T.slice(0,4).concat(T.slice(4)), a2=T.slice(4).concat(T.slice(0,4));
+const a1=T, a2=[T[5],T[2],T[7],T[0],T[4],T[1],T[6],T[3]];
 document.getElementById('mq1').innerHTML=(a1.map(card).join('')).repeat(2);
 document.getElementById('mq2').innerHTML=(a2.map(card).join('')).repeat(2);
 
