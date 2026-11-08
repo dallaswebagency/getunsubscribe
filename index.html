@@ -626,6 +626,75 @@ footer ul{gap:.5rem}
 .rpop.show .bar{animation:rpbar 7s linear forwards}
 @keyframes rpbar{to{width:100%}}
 @media (max-width:760px){.rpop{left:12px;right:12px;bottom:12px;width:auto}}
+
+/* ===== Mobile polish ===== */
+.m-only{display:none}
+.st-left,.st-app,.pv-left,.pv-right,.hx-copy{min-width:0}
+@media (max-width:760px){
+  .wrap{width:calc(100% - 40px)}
+  h2{font-size:clamp(1.9rem,8vw,2.4rem)}
+  .eyebrow{font-size:13px}
+  .nav .wrap{height:64px}
+  .nav img{height:28px}
+  .nav.open ul{top:64px;box-shadow:0 20px 30px -20px rgba(11,30,52,.3)}
+  .nav.open .m-only{display:block}
+  .nav.open .m-only .btn{width:100%;justify-content:center;color:#fff}
+  .ribbon .wrap{padding:.5rem 0;gap:.3rem .6rem}
+  .hx{padding:2.6rem 0 3rem}
+  .hx h1{font-size:clamp(2.2rem,10vw,2.8rem)}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn{justify-content:center}
+  .hx-proof{align-items:flex-start}
+  .hx-stage{height:470px}
+  .phone{width:220px;right:0;top:0}
+  .hx-dash{width:250px;bottom:0;left:0}
+  .hx-dash .total strong{font-size:1.8rem}
+  .proof .wrap{gap:1.6rem;padding:1.6rem 0}
+  .faces{flex-direction:column;align-items:flex-start;gap:.7rem}
+  .stats{grid-template-columns:repeat(3,1fr);gap:.4rem}
+  .stat{padding-left:.7rem}
+  .stat strong{font-size:1.35rem}
+  .stat span{font-size:.72rem;line-height:1.35;display:block}
+  .steps,.bento-sec,.videos,.pricing,.wall{padding:4rem 0}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:0 1rem;align-items:center;padding:1.2rem}
+  .step .num{grid-row:span 3;margin:0;width:56px;height:56px}
+  .step h3{font-size:1.3rem;margin:0}
+  .pv-feat{padding:1.1rem}
+  .pv-flow{padding:1.4rem}
+  .t-sec{padding:1.4rem}
+  .secgrid div{min-height:auto;padding:1rem}
+  .vcard{flex-basis:200px}
+  .vx-card{padding:1.6rem}
+  .vx-mid{justify-content:center}
+  .vx-badge{width:140px;height:140px}
+  .vx-badge strong{font-size:2.6rem}
+  .st{padding:1.4rem;border-radius:26px;gap:2rem}
+  .st-quote{padding:1.4rem 1.2rem 1.2rem}
+  .st-quote blockquote{font-size:1.02rem}
+  .kstats{gap:.5rem}
+  .kstats div{padding:.75rem .6rem}
+  .kstats b{font-size:1.1rem}
+  .kstats span{font-size:.72rem;display:block;line-height:1.3}
+  .st-app{padding:1.2rem;border-radius:24px}
+  .donut{width:170px;height:170px}.donut>div{width:122px;height:122px;padding-top:42px}
+  .pcard{padding:1.8rem}
+  .save-tag{left:1.8rem}
+  .p2-side{padding:1.6rem}
+  .tcard{width:280px}
+  .fx{padding:3.5rem 1.2rem;border-radius:28px}
+  .fx h2{font-size:clamp(2rem,9vw,2.6rem)}
+  .fx-kick{font-size:.78rem}
+  .fx-btn{font-size:.95rem;padding-left:1.3rem}
+  .fx-ticks{gap:.5rem 1rem}
+  .f-cta{padding:1.4rem}
+  .f-cta h4{font-size:1.25rem}
+  .f-cta .btn{width:100%;justify-content:center}
+  .f-stats div{padding:1rem .8rem}
+  .f-stats strong{font-size:1.4rem}
+  .f-top{grid-template-columns:1fr 1fr;gap:1.8rem 1.2rem}
+  .f-brand,.f-plans{grid-column:1/-1}
+  .f-bot{flex-direction:column;gap:.4rem}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.row{opacity:1;transform:none}}
 </style>
 </head>
@@ -647,6 +716,8 @@ footer ul{gap:.5rem}
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#">Support Center</a></li>
       <li><a href="#security">Privacy &amp; Security</a></li>
+      <li class="m-only"><a href="#">Login</a></li>
+      <li class="m-only"><a class="btn btn-dark" href="#">Find Hidden Subscriptions</a></li>
     </ul>
     <div class="nav-cta">
       <a class="login" href="#">Login</a>
