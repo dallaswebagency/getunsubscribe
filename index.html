@@ -443,6 +443,110 @@ footer ul a:hover{color:var(--cyan)}
 .mini span{display:block;height:100%;border-radius:5px}
 @media (max-width:1024px){.vx{grid-template-columns:1fr}.vx-mid{width:auto;flex-direction:row;flex-wrap:wrap}.st{grid-template-columns:1fr}}
 
+/* Pricing v2 */
+.px{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.px-left h2{margin:.9rem 0 1.2rem}
+.px-inc{margin-top:2rem;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:1.6rem 1.8rem}
+.px-inc h4{font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan-2);margin-bottom:1rem}
+.px-inc ul{list-style:none;display:grid;gap:.85rem}
+.px-inc li{display:flex;gap:.8rem;align-items:flex-start;color:var(--navy);font-weight:500}
+.px-inc li i{width:26px;height:26px;border-radius:8px;background:#DCFCE7;color:var(--mint-2);display:grid;place-items:center;flex:none}
+.px-inc li i svg{width:14px;height:14px}
+.toggle{position:relative;display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px;margin-bottom:1.4rem;box-shadow:0 10px 30px -18px rgba(22,44,70,.4)}
+.toggle button{position:relative;z-index:1;border:0;background:none;font:600 .95rem 'Poppins',sans-serif;color:var(--muted);padding:.8rem 1rem;border-radius:999px;cursor:pointer;transition:color .3s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.toggle button span{font-size:.7rem;background:var(--yellow);color:var(--ink);padding:.15rem .5rem;border-radius:999px}
+.toggle button.on{color:#fff}
+.toggle .thumb{position:absolute;top:6px;bottom:6px;left:6px;width:calc(50% - 6px);border-radius:999px;background:var(--navy);transition:transform .4s cubic-bezier(.2,.8,.2,1);transform:translateX(100%)}
+.toggle.m .thumb{transform:none}
+.pcard{position:relative;border-radius:30px;padding:2.4rem;background:var(--ink);color:#c9d8e4;overflow:hidden;box-shadow:0 40px 70px -35px rgba(11,30,52,.8);transition:background .4s}
+.pcard::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 260px at 100% 0%,rgba(244,183,64,.28),transparent 70%),radial-gradient(380px 260px at 0% 100%,rgba(84,197,216,.25),transparent 70%);transition:opacity .4s}
+.pcard.monthly{background:#fff;color:var(--ink-2);border:1px solid var(--line)}
+.pcard.monthly::before{opacity:.35}
+.pcard>div{position:relative}
+.pcard .best-tag{top:1.4rem;right:1.4rem;z-index:2;transition:opacity .3s}
+.pcard.monthly .best-tag{opacity:0}
+.pcard .pc-monthly{display:none}
+.pcard.monthly .pc-monthly{display:block;animation:fadeup .45s}
+.pcard.monthly .pc-annual{display:none}
+.pcard.annual .pc-annual{animation:fadeup .45s}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pcard small{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.pcard.monthly small{color:var(--cyan-2)}
+.pcard h3{font-size:1.8rem;margin:.4rem 0 .3rem;color:#fff}
+.pcard.monthly h3{color:var(--navy)}
+.pcard .desc{color:#9db3c4}
+.pcard.monthly .desc{color:var(--muted)}
+.pcard .amt{font-size:clamp(3.6rem,7vw,5.4rem);font-weight:800;letter-spacing:-.045em;line-height:1;margin:1.6rem 0 .5rem;color:#fff}
+.pcard.monthly .amt{color:var(--navy)}
+.pcard .amt s{font-size:.35em;color:#7f97ab;font-weight:600;margin-right:.5rem;vertical-align:middle}
+.pcard .amt sub{font-size:.22em;font-weight:500;letter-spacing:0;color:#9db3c4;vertical-align:baseline}
+.pcard .per{color:#c9d8e4;margin-bottom:1.6rem}
+.pcard .per b{color:var(--mint)}
+.pcard .btn{width:100%;justify-content:center;padding:1.1rem}
+.btn-light{background:var(--navy);color:#fff}
+.btn-light:hover{background:var(--ink)}
+.pcard .meta{font-size:.85rem;margin-top:1rem;color:#9db3c4;text-align:center}
+.pcard.monthly .meta{color:var(--muted)}
+.px-scan{display:flex;gap:.9rem;align-items:center;margin-top:1.2rem;background:var(--cyan-soft);border-radius:var(--r-md);padding:1rem 1.2rem;color:var(--navy);font-size:.95rem}
+.px-scan .ic{width:36px;height:36px;border-radius:10px;background:#fff;color:var(--cyan-2);display:grid;place-items:center;flex:none}
+.px-fn{font-size:.8rem;color:var(--muted);margin-top:.8rem;text-align:center}
+
+/* Final CTA v2 */
+.fx{position:relative;border-radius:44px;overflow:hidden;background:#071526;min-height:620px;display:grid;place-items:center;padding:5rem 1.5rem;isolation:isolate}
+.fx-aurora{position:absolute;inset:-30%;z-index:-2;background:conic-gradient(from 0deg at 50% 50%,rgba(84,197,216,.0),rgba(84,197,216,.55),rgba(115,214,161,.35),rgba(244,183,64,.4),rgba(28,55,88,.2),rgba(84,197,216,.0));filter:blur(70px);animation:spin 18s linear infinite;opacity:.75}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fx-grid{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask:radial-gradient(ellipse at center,#000 20%,transparent 70%);mask:radial-gradient(ellipse at center,#000 20%,transparent 70%)}
+.fx::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,rgba(7,21,38,.2),rgba(7,21,38,.85) 75%)}
+.fx-body{text-align:center;max-width:760px;position:relative}
+.fx-kick{display:inline-flex;gap:.5rem;font-family:var(--mono);font-weight:600;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.4rem}
+.fx-kick span{padding:.4rem .9rem;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff;backdrop-filter:blur(10px)}
+.fx-kick span:last-child{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.fx h2{color:#fff;font-size:clamp(2.6rem,6.5vw,5.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+.fx h2 em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--mint),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
+.fx-sub{color:#c2d5e2;font-size:1.12rem;max-width:52ch;margin:1.4rem auto 2.4rem}
+.fx-btn{display:inline-flex;align-items:center;gap:1rem;padding:.55rem .55rem .55rem 1.8rem;border-radius:999px;background:#fff;color:var(--ink);font-weight:700;font-size:1.05rem;box-shadow:0 0 0 8px rgba(255,255,255,.08),0 25px 50px -20px rgba(84,197,216,.8);transition:transform .25s,box-shadow .25s}
+.fx-btn i{width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;transition:transform .25s,background .25s}
+.fx-btn i svg{width:20px;height:20px}
+.fx-btn:hover{transform:translateY(-3px);box-shadow:0 0 0 12px rgba(255,255,255,.1),0 30px 60px -20px rgba(84,197,216,.9)}
+.fx-btn:hover i{transform:rotate(-45deg);background:var(--cyan-2)}
+.fx-ticks{list-style:none;display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;margin-top:1.8rem;font-size:.88rem;color:#9db3c4}
+.fx-ticks li{display:flex;align-items:center;gap:.45rem}
+.fx-ticks li::before{content:"✓";color:var(--mint);font-weight:700}
+.fx-chip{position:absolute;display:flex;gap:.7rem;align-items:center;padding:.75rem 1rem;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);color:#fff;font-size:.85rem;animation:bob 6s ease-in-out infinite}
+.fx-chip b{display:block;font-size:.88rem}
+.fx-chip small{color:#9db3c4;font-size:.72rem}
+.fx-chip i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;flex:none}
+.fx-chip i.g{background:rgba(115,214,161,.25);color:var(--mint)}
+.fx-chip i.a{background:rgba(244,183,64,.25);color:var(--amber)}
+.fx-chip i.c{background:rgba(84,197,216,.25);color:var(--cyan)}
+.c1{top:9%;left:5%}.c2{top:14%;right:5%;animation-delay:-2s}.c3{bottom:12%;left:7%;animation-delay:-4s}.c4{bottom:9%;right:6%;animation-delay:-1s}
+
+/* Footer v2 */
+footer{padding-top:4rem;position:relative;overflow:hidden}
+.f-cta{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;padding:2rem 2.2rem;border-radius:var(--r-lg);background:linear-gradient(120deg,rgba(84,197,216,.16),rgba(255,255,255,.04));border:1px solid rgba(84,197,216,.25)}
+.f-cta h4{color:#fff;font-size:1.5rem;letter-spacing:-.02em}
+.f-cta p{max-width:58ch;margin-top:.3rem}
+.f-stats{display:grid;grid-template-columns:repeat(4,1fr);margin:2.4rem 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.f-stats div{padding:1.6rem 1.4rem;border-left:1px solid rgba(255,255,255,.08)}
+.f-stats div:first-child{border-left:0;padding-left:0}
+.f-stats strong{display:block;color:#fff;font-size:1.8rem;letter-spacing:-.03em;line-height:1.1}
+.f-stats span{font-size:.82rem}
+.f-top{grid-template-columns:1.5fr 1fr 1fr 1.1fr 1.2fr;padding-top:1rem}
+.f-badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.2rem}
+.f-badges span{font-size:.74rem;padding:.3rem .7rem;border-radius:999px;border:1px solid rgba(115,214,161,.3);color:var(--mint);background:rgba(115,214,161,.07)}
+.f-plans{display:flex;flex-direction:column;gap:.6rem}
+.fp{display:block;padding:.85rem 1rem;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:border-color .2s}
+.fp:hover{border-color:var(--cyan)}
+.fp.best{border-color:rgba(244,183,64,.45)}
+.fp small{display:block;font-size:.72rem;color:#9db3c4}
+.fp.best small{color:var(--amber)}
+.fp b{color:#fff;font-size:1.25rem}
+.fp b span{font-size:.78rem;font-weight:500;color:#9db3c4}
+.f-plans p{font-size:.8rem}
+.f-word{font-size:clamp(3.5rem,13.5vw,12.5rem);font-weight:800;letter-spacing:-.05em;line-height:.9;text-align:center;margin:3rem 0 1rem;background:linear-gradient(180deg,rgba(84,197,216,.35),rgba(84,197,216,0) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;white-space:nowrap}
+@media (max-width:1024px){.px{grid-template-columns:1fr;gap:2.5rem}.f-top{grid-template-columns:1fr 1fr}.f-stats{grid-template-columns:1fr 1fr}.f-stats div:nth-child(3){border-left:0;padding-left:0}.fx-chip{display:none}}
+@media (max-width:600px){.f-top{grid-template-columns:1fr}.fx{min-height:auto;border-radius:30px}}
+
 /* Review popup */
 .rpop{position:fixed;left:24px;bottom:24px;z-index:60;width:340px;background:#fff;border-radius:18px;padding:1.2rem 1.3rem 1.1rem;box-shadow:0 24px 50px -18px rgba(11,30,52,.45),0 0 0 1px var(--line);border-left:4px solid var(--cyan);opacity:0;transform:translateY(24px) scale(.97);pointer-events:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
 .rpop.show{opacity:1;transform:none;pointer-events:auto}
@@ -703,41 +807,55 @@ footer ul a:hover{color:var(--cyan)}
 
 <section class="pricing" id="pricing">
   <div class="wrap">
-    <div class="p-head reveal">
-      <p class="eyebrow">Simple membership pricing</p>
-      <h2 style="margin-top:.8rem">Cancel what you don't need. Stay in control of what comes next.</h2>
-      <p class="lead">Your subscriptions keep changing. GetUnsubscribe helps you track recurring charges, discover new subscriptions, and send cancellation requests straight from your dashboard in seconds. Receive confirmation automatically when cancellation is complete.</p>
-      <span class="save-badge">Save <b>49%</b> with the Annual Pass †</span>
-    </div>
-    <div class="plans">
-      <div class="plan reveal">
-        <small>Flexibility, month by month</small>
-        <h3>Monthly</h3>
-        <p class="desc">Full access, with a smaller upfront payment.</p>
-        <div class="amt">$12.99<sub> / mo.</sub></div>
-        <p class="meta">$12.99 billed monthly. Cancel renewal anytime.</p>
-        <a class="btn btn-ghost" href="#">Choose monthly</a>
+    <div class="px">
+      <div class="px-left reveal">
+        <p class="eyebrow">Simple membership pricing</p>
+        <h2>Cancel what you don't need. Stay in control of what comes next.</h2>
+        <p class="lead">Your subscriptions keep changing. GetUnsubscribe helps you track recurring charges, discover new subscriptions, and send cancellation requests straight from your dashboard in seconds. Receive confirmation automatically when cancellation is complete.</p>
+        <div class="px-inc">
+          <h4>Both plans include</h4>
+          <ul>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg></i>Find hidden subscriptions instantly</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg></i>Send cancellation requests straight from your dashboard in seconds</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg></i>Receive confirmation automatically when cancellation is complete</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg></i>Spot new subscriptions that appear after your first cleanup</li>
+          </ul>
+        </div>
       </div>
-      <div class="plan best reveal" style="transition-delay:.1s">
-        <span class="best-tag">BEST VALUE</span>
-        <small>Pay once. Save more.</small>
-        <h3>Annual Pass</h3>
-        <p class="desc">One payment. A full year of clarity and control.</p>
-        <div class="amt"><s>$99</s>$79<sub> / first year</sub></div>
-        <p class="meta">Just $6.58/month, billed once. $79 for your first year, then $99/year. Cancel renewal anytime.</p>
-        <a class="btn btn-amber" href="#">Get the Annual Pass <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+      <div class="px-right reveal">
+        <div class="toggle" role="tablist" aria-label="Billing">
+          <button role="tab" data-plan="monthly">Monthly</button>
+          <button role="tab" data-plan="annual" class="on">Annual Pass <span>Save 49% †</span></button>
+          <i class="thumb"></i>
+        </div>
+
+        <div class="pcard annual" id="pcard">
+          <span class="best-tag">BEST VALUE</span>
+          <div class="pc-annual">
+            <small>Pay once. Save more.</small>
+            <h3>Annual Pass</h3>
+            <p class="desc">One payment. A full year of clarity and control.</p>
+            <div class="amt"><s>$99</s>$79<sub>/ first year</sub></div>
+            <p class="per">Just <b>$6.58/month</b>, billed once.</p>
+            <a class="btn btn-amber" href="#">Get the Annual Pass <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="meta">$79 for your first year, then $99/year. Cancel renewal anytime.</p>
+          </div>
+          <div class="pc-monthly">
+            <small>Flexibility, month by month</small>
+            <h3>Monthly</h3>
+            <p class="desc">Full access, with a smaller upfront payment.</p>
+            <div class="amt">$12.99<sub>/ mo.</sub></div>
+            <p class="per">&nbsp;</p>
+            <a class="btn btn-light" href="#">Choose monthly <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="meta">$12.99 billed monthly. Cancel renewal anytime.</p>
+          </div>
+        </div>
+
+        <div class="px-scan"><span class="ic">✦</span><p><b>Start with a free scan.</b> You choose a plan after we show you what we found.</p></div>
+        <p class="px-fn">† Compared with 12 months of Monthly ($155.88).</p>
       </div>
     </div>
-    <div class="includes reveal">
-      <h4>Both plans<br>include</h4>
-      <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Find hidden subscriptions instantly</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Send cancellation requests straight from your dashboard in seconds</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Receive confirmation automatically when cancellation is complete</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Spot new subscriptions that appear after your first cleanup</li>
-      </ul>
-    </div>
-    <p class="p-foot"><b>Start with a free scan.</b> You choose a plan after we show you what we found.<br><small>† Compared with 12 months of Monthly ($155.88).</small></p>
   </div>
 </section>
 
@@ -755,33 +873,64 @@ footer ul a:hover{color:var(--cyan)}
 
 <section class="final">
   <div class="wrap">
-    <div class="final-card reveal">
-      <p class="eyebrow">Your money. Your call.</p>
-      <h2>Get control over your subscriptions</h2>
-      <p>See recurring charges in one clear dashboard, decide what stays, and get help canceling what doesn't.</p>
-      <a class="btn btn-amber" href="#">Manage My Subscriptions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <small>Free to start • No credit card required • Secure, read-only connection</small>
+    <div class="fx reveal">
+      <div class="fx-aurora"></div>
+      <div class="fx-grid"></div>
+      <div class="fx-chip c1"><i class="g">✓</i><div><b>Status: Confirmed</b><small>Merchant confirmation received</small></div></div>
+      <div class="fx-chip c2"><i class="a">!</i><div><b>Found a forgotten charge</b><small>A GetUnsubscribe member · recently</small></div></div>
+      <div class="fx-chip c3"><i class="c">$</i><div><b>$221/mo</b><small>Recurring spend uncovered</small></div></div>
+      <div class="fx-chip c4"><i class="g">↓</i><div><b>Started a cancellation</b><small>A GetUnsubscribe member · recently</small></div></div>
+      <div class="fx-body">
+        <p class="fx-kick"><span>Your money.</span><span>Your call.</span></p>
+        <h2>Get control over your <em>subscriptions</em></h2>
+        <p class="fx-sub">See recurring charges in one clear dashboard, decide what stays, and get help canceling what doesn't.</p>
+        <a class="fx-btn" href="#"><span>Manage My Subscriptions</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <ul class="fx-ticks"><li>Free to start</li><li>No credit card required</li><li>Secure, read-only connection</li></ul>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
+    <div class="f-cta">
+      <div><h4>Stop wondering where your money is going.</h4><p>Connect your accounts securely, uncover recurring charges, and take control of the subscriptions you're paying for.</p></div>
+      <a class="btn btn-amber" href="#">Find My Subscriptions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="f-stats">
+      <div><strong>$14.6M+</strong><span>saved by members so far</span></div>
+      <div><strong>12,000+</strong><span>people finding forgotten charges</span></div>
+      <div><strong>4.8/5</strong><span><span class="stars">★★★★★</span> average rating</span></div>
+      <div><strong>$1,220/yr</strong><span>average annual savings</span></div>
+    </div>
+
     <div class="f-top">
       <div class="f-brand">
         <img src="https://getunsubscribe.com/brand-logo.png" alt="GetUnsubscribe">
         <p>Built to make subscription management easier, clearer, and more reliable</p>
+        <div class="f-badges">
+          <span>CASA assessed</span><span>Bank-level encryption</span><span>Read-only access</span><span>No passwords stored</span>
+        </div>
         <div class="social">
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zM17.3 5.5a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM12 2c-2.7 0-3 0-4.1.1C4.3 2.3 2.3 4.3 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1c.2 3.6 2.2 5.6 5.8 5.8 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c3.6-.2 5.6-2.2 5.8-5.8.1-1.1.1-1.4.1-4.1s0-3-.1-4.1c-.2-3.6-2.2-5.6-5.8-5.8C15 2 14.7 2 12 2zm0 1.8c2.7 0 3 0 4 .1 2.7.1 3.9 1.4 4.1 4.1.1 1 .1 1.3.1 4s0 3-.1 4c-.1 2.7-1.4 3.9-4.1 4.1-1 .1-1.3.1-4 .1s-3 0-4-.1c-2.7-.1-3.9-1.4-4.1-4.1-.1-1-.1-1.3-.1-4s0-3 .1-4C4.1 5.3 5.3 4 8 3.9c1-.1 1.3-.1 4-.1z"/></svg></a>
           <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6c0-.9.6-1 1-1h3V1h-4c-3.3 0-4 2.4-4 4v3H7v4h3v11h4V12h3.4l.6-4z"/></svg></a>
         </div>
       </div>
-      <div><h5>Product</h5><ul><li><a href="#how">How it Works</a></li><li><a href="#">Support Center</a></li><li><a href="#">FAQ</a></li></ul></div>
-      <div><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Blog</a></li></ul></div>
-      <div><h5>Trust &amp; Privacy</h5><ul><li><a href="#">Privacy &amp; Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Cookie Settings</a></li></ul></div>
+      <div><h5>Product</h5><ul><li><a href="#how">How it Works</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#">Support Center</a></li><li><a href="#">FAQ</a></li><li><a href="#">Login</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Blog</a></li><li><a href="#reviews">Member reviews</a></li></ul></div>
+      <div><h5>Trust &amp; Privacy</h5><ul><li><a href="#security">Privacy &amp; Security</a></li><li><a href="#">Privacy &amp; Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Cookie Settings</a></li></ul></div>
+      <div class="f-plans"><h5>Plans</h5>
+        <a href="#pricing" class="fp best"><small>Annual Pass · Best value</small><b>$79 <span>first year</span></b></a>
+        <a href="#pricing" class="fp"><small>Monthly</small><b>$12.99 <span>/ mo.</span></b></a>
+        <p>Cancel renewal anytime.</p>
+      </div>
     </div>
-    <div class="f-bot"><span>© 2026 Unsubscribe.ai DBA GetUnsubscribe. All rights reserved.</span><span>Secure, read-only connection</span></div>
+
+    <div class="f-word" aria-hidden="true">GetUnsubscribe</div>
+
+    <div class="f-bot"><span>© 2026 Unsubscribe.ai DBA GetUnsubscribe. All rights reserved.</span><span>One smart subscription. Countless canceled ones.</span></div>
   </div>
 </footer>
 
@@ -820,6 +969,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const sv=document.querySelector('.cnt');new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();let n=0;const to=+sv.dataset.to;const st=()=>{n+=Math.ceil((to-n)/14);sv.textContent=n.toLocaleString();if(n<to)requestAnimationFrame(st)};st()})},{threshold:.4}).observe(sv);
 // stagger the 1 vs 15 blocks
 document.querySelectorAll('.vx-blocks i').forEach((b,k)=>b.style.transitionDelay=(k*60)+'ms');
+
+// Pricing toggle
+(function(){const t=document.querySelector('.toggle'),c=document.getElementById('pcard');t.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{t.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const m=b.dataset.plan==='monthly';t.classList.toggle('m',m);c.classList.toggle('monthly',m);c.classList.toggle('annual',!m)}))})();
 
 // Hero counter
 const c=document.getElementById('count');let v=0;const end=221;
